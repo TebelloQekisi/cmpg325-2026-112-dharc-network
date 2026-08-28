@@ -1,0 +1,155 @@
+<svg viewBox="0 0 1200 860" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif">
+  <rect x="0" y="0" width="1200" height="860" fill="#ffffff"/>
+
+  <!-- Title -->
+  <text x="600" y="28" text-anchor="middle" font-size="22" font-weight="700" fill="#111827">Physical Topology: Dikgosi History &amp; Archives Research Centre</text>
+  <text x="600" y="49" text-anchor="middle" font-size="13" font-style="italic" fill="#6b7280">CMPG325-2026-112 · Milestone 1: Client Design Review</text>
+
+  <g transform="translate(0,40)">
+  <!-- Cloud -->
+  <g>
+    <path d="M330,140 a40,40 0 0,1 0,-80 a30,30 0 0,1 55,-25 a45,45 0 0,1 85,10 a35,35 0 0,1 30,95 z"
+          fill="#bae6fd" stroke="#0284c7" stroke-width="2"/>
+    <text x="415" y="115" text-anchor="middle" font-size="14" font-weight="600" fill="#075985">Internet / ISP</text>
+    <text x="415" y="132" text-anchor="middle" font-size="10" fill="#075985">(simulated WAN transit)</text>
+  </g>
+
+  <!-- Remote Admin PC -->
+  <g>
+    <rect x="60" y="90" width="160" height="70" rx="8" fill="#475569"/>
+    <text x="140" y="118" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">Remote-Admin-PC</text>
+    <text x="140" y="134" text-anchor="middle" font-size="10" fill="#e2e8f0">Off-site Administrator</text>
+    <text x="140" y="148" text-anchor="middle" font-size="10" fill="#cbd5e1">192.0.2.2/30 (CR9)</text>
+  </g>
+  <line x1="220" y1="125" x2="330" y2="115" stroke="#334155" stroke-width="1.5"/>
+
+  <!-- Cloud to Router -->
+  <line x1="415" y1="165" x2="415" y2="235" stroke="#334155" stroke-width="1.5"/>
+  <text x="425" y="205" font-size="10" fill="#334155">Gi0/0 – WAN</text>
+  <text x="425" y="218" font-size="10" fill="#334155">192.0.2.1/30</text>
+
+  <!-- Router0 -->
+  <g>
+    <rect x="335" y="235" width="160" height="70" rx="8" fill="#1d4ed8"/>
+    <polygon points="352,290 362,283 362,297" fill="#bfdbfe"/>
+    <polygon points="478,250 468,257 468,243" fill="#bfdbfe"/>
+    <text x="415" y="263" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">RTR-EDGE</text>
+    <text x="415" y="279" text-anchor="middle" font-size="10" fill="#dbeafe">Cisco 4321 ISR</text>
+    <text x="415" y="293" text-anchor="middle" font-size="10" fill="#dbeafe">NAT + SSH ACL</text>
+  </g>
+
+  <!-- Router to Core switch -->
+  <line x1="415" y1="305" x2="415" y2="385" stroke="#334155" stroke-width="1.5"/>
+  <text x="425" y="335" font-size="10" fill="#334155">Gi0/1 Trunk</text>
+  <text x="425" y="348" font-size="10" fill="#334155">802.1Q, all VLANs</text>
+
+  <!-- Core L3 Switch -->
+  <g>
+    <rect x="325" y="385" width="180" height="70" rx="8" fill="#0f766e"/>
+    <rect x="345" y="440" width="10" height="8" fill="#99f6e4"/>
+    <rect x="360" y="440" width="10" height="8" fill="#99f6e4"/>
+    <rect x="375" y="440" width="10" height="8" fill="#99f6e4"/>
+    <rect x="460" y="440" width="10" height="8" fill="#99f6e4"/>
+    <rect x="475" y="440" width="10" height="8" fill="#99f6e4"/>
+    <text x="415" y="412" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">CORE-L3SW</text>
+    <text x="415" y="428" text-anchor="middle" font-size="10" fill="#ccfbf1">Cisco 3560 (Multilayer)</text>
+  </g>
+
+  <!-- Access Switch -->
+  <g>
+    <rect x="915" y="385" width="180" height="70" rx="8" fill="#16a34a"/>
+    <rect x="935" y="440" width="10" height="8" fill="#bbf7d0"/>
+    <rect x="950" y="440" width="10" height="8" fill="#bbf7d0"/>
+    <rect x="1045" y="440" width="10" height="8" fill="#bbf7d0"/>
+    <rect x="1060" y="440" width="10" height="8" fill="#bbf7d0"/>
+    <text x="1005" y="412" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">ACC-READSW</text>
+    <text x="1005" y="428" text-anchor="middle" font-size="10" fill="#dcfce7">Cisco 2960 (Access)</text>
+  </g>
+
+  <!-- EtherChannel double link -->
+  <line x1="505" y1="410" x2="915" y2="410" stroke="#334155" stroke-width="2"/>
+  <line x1="505" y1="430" x2="915" y2="430" stroke="#334155" stroke-width="2"/>
+  <text x="710" y="400" text-anchor="middle" font-size="11" font-weight="600" fill="#7c2d12">Po1 – EtherChannel (Gi0/2 + Gi0/3)</text>
+  <text x="710" y="447" text-anchor="middle" font-size="10" fill="#7c2d12">Redundant trunk: satisfies §8 no-downtime constraint</text>
+
+  <!-- Bottom row devices -->
+  <!-- Server0 -->
+  <g>
+    <rect x="30" y="565" width="130" height="70" rx="8" fill="#7c3aed"/>
+    <rect x="55" y="580" width="80" height="8" fill="#ddd6fe"/>
+    <rect x="55" y="592" width="80" height="8" fill="#ddd6fe"/>
+    <text x="95" y="617" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">WEB-SRV</text>
+    <text x="95" y="630" text-anchor="middle" font-size="9" fill="#ede9fe">Internal HTTP Server</text>
+  </g>
+  <line x1="345" y1="455" x2="95" y2="565" stroke="#334155" stroke-width="1.2"/>
+  <text x="150" y="510" font-size="9.5" fill="#334155">Fa0/1 – VLAN 40</text>
+
+  <!-- PC-Admin1 -->
+  <g>
+    <rect x="190" y="565" width="130" height="70" rx="8" fill="#475569"/>
+    <text x="255" y="597" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">PC-Admin1</text>
+    <text x="255" y="613" text-anchor="middle" font-size="9" fill="#e2e8f0">VLAN 10</text>
+  </g>
+  <line x1="375" y1="455" x2="255" y2="565" stroke="#334155" stroke-width="1.2"/>
+  <text x="290" y="510" font-size="9.5" fill="#334155">Fa0/2 – VLAN 10</text>
+
+  <!-- PC-Admin2 -->
+  <g>
+    <rect x="350" y="565" width="130" height="70" rx="8" fill="#475569"/>
+    <text x="415" y="597" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">PC-Admin2</text>
+    <text x="415" y="613" text-anchor="middle" font-size="9" fill="#e2e8f0">VLAN 10</text>
+  </g>
+  <line x1="415" y1="455" x2="415" y2="565" stroke="#334155" stroke-width="1.2"/>
+  <text x="424" y="510" font-size="9.5" fill="#334155">Fa0/3</text>
+
+  <!-- PC-Archivist1 -->
+  <g>
+    <rect x="510" y="565" width="130" height="70" rx="8" fill="#475569"/>
+    <text x="575" y="597" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">PC-Archivist1</text>
+    <text x="575" y="613" text-anchor="middle" font-size="9" fill="#e2e8f0">VLAN 20</text>
+  </g>
+  <line x1="455" y1="455" x2="575" y2="565" stroke="#334155" stroke-width="1.2"/>
+  <text x="500" y="510" font-size="9.5" fill="#334155">Fa0/4 – VLAN 20</text>
+
+  <!-- PC-Archivist2 -->
+  <g>
+    <rect x="670" y="565" width="130" height="70" rx="8" fill="#475569"/>
+    <text x="735" y="597" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">PC-Archivist2</text>
+    <text x="735" y="613" text-anchor="middle" font-size="9" fill="#e2e8f0">VLAN 20</text>
+  </g>
+  <line x1="485" y1="455" x2="735" y2="565" stroke="#334155" stroke-width="1.2"/>
+  <text x="660" y="510" font-size="9.5" fill="#334155">Fa0/5</text>
+
+  <!-- PC-Reading1 -->
+  <g>
+    <rect x="860" y="565" width="130" height="70" rx="8" fill="#475569"/>
+    <text x="925" y="597" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">PC-Reading1</text>
+    <text x="925" y="613" text-anchor="middle" font-size="9" fill="#e2e8f0">VLAN 30</text>
+  </g>
+  <line x1="955" y1="455" x2="925" y2="565" stroke="#334155" stroke-width="1.2"/>
+  <text x="935" y="510" font-size="9.5" fill="#334155">Fa0/1</text>
+
+  <!-- PC-Reading2 -->
+  <g>
+    <rect x="1020" y="565" width="130" height="70" rx="8" fill="#475569"/>
+    <text x="1085" y="597" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">PC-Reading2</text>
+    <text x="1085" y="613" text-anchor="middle" font-size="9" fill="#e2e8f0">VLAN 30</text>
+  </g>
+  <line x1="1055" y1="455" x2="1085" y2="565" stroke="#334155" stroke-width="1.2"/>
+  <text x="1060" y="510" font-size="9.5" fill="#334155">Fa0/2</text>
+
+  <!-- Legend -->
+  <rect x="30" y="668" width="1140" height="122" rx="8" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="50" y="692" font-size="12" font-weight="700" fill="#111827">Legend &amp; Key Design Notes</text>
+
+  <rect x="50" y="702" width="16" height="16" fill="#1d4ed8"/><text x="72" y="715" font-size="11" fill="#334155">Router</text>
+  <rect x="150" y="702" width="16" height="16" fill="#0f766e"/><text x="172" y="715" font-size="11" fill="#334155">Core L3 Switch</text>
+  <rect x="290" y="702" width="16" height="16" fill="#16a34a"/><text x="312" y="715" font-size="11" fill="#334155">Access Switch</text>
+  <rect x="420" y="702" width="16" height="16" fill="#7c3aed"/><text x="442" y="715" font-size="11" fill="#334155">Server</text>
+  <rect x="510" y="702" width="16" height="16" fill="#475569"/><text x="532" y="715" font-size="11" fill="#334155">End Device (PC)</text>
+
+  <text x="50" y="740" font-size="11" fill="#334155">• Po1 EtherChannel (2× links) between CORE-L3SW and ACC-READSW removes a single-link failure point; this directly satisfies the "no downtime during month-end processing" design constraint.</text>
+  <text x="50" y="758" font-size="11" fill="#334155">• Remote management (CR9): SSH enabled on all Cisco devices; Router0 ACL permits VTY access only from 192.0.2.2 (the off-site administrator's simulated public address). Telnet disabled.</text>
+  <text x="50" y="776" font-size="11" fill="#334155">• Reading Room (public) traffic is isolated on its own access switch/VLAN, separate from staff/archive traffic on the core switch.</text>
+  </g>
+</svg>

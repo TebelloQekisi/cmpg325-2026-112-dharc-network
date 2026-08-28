@@ -1,0 +1,109 @@
+<svg viewBox="0 0 1200 905" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif">
+  <rect x="0" y="0" width="1200" height="905" fill="#ffffff"/>
+
+  <!-- Title -->
+  <text x="600" y="28" text-anchor="middle" font-size="22" font-weight="700" fill="#111827">Logical Topology: VLANs &amp; IP Addressing (10.42.0.0/16)</text>
+  <text x="600" y="49" text-anchor="middle" font-size="13" font-style="italic" fill="#6b7280">CMPG325-2026-112 · Dikgosi History &amp; Archives Research Centre</text>
+
+  <g transform="translate(0,45)">
+  <!-- Cloud -->
+  <path d="M515,140 a35,35 0 0,1 0,-70 a26,26 0 0,1 48,-22 a40,40 0 0,1 75,9 a30,30 0 0,1 27,83 z"
+        fill="#bae6fd" stroke="#0284c7" stroke-width="2"/>
+  <text x="600" y="112" text-anchor="middle" font-size="13" font-weight="600" fill="#075985">Internet / WAN</text>
+
+  <!-- Remote Admin PC -->
+  <rect x="760" y="90" width="170" height="70" rx="8" fill="#475569"/>
+  <text x="845" y="118" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">Remote-Admin-PC</text>
+  <text x="845" y="133" text-anchor="middle" font-size="10" fill="#e2e8f0">192.0.2.2/30</text>
+  <text x="845" y="147" text-anchor="middle" font-size="9" fill="#cbd5e1">Off-site admin (CR9)</text>
+  <line x1="675" y1="115" x2="760" y2="120" stroke="#334155" stroke-width="1.5"/>
+
+  <!-- Router0 -->
+  <rect x="520" y="195" width="160" height="70" rx="8" fill="#1d4ed8"/>
+  <text x="600" y="223" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">RTR-EDGE</text>
+  <text x="600" y="238" text-anchor="middle" font-size="10" fill="#dbeafe">192.0.2.1/30 (WAN)</text>
+  <text x="600" y="251" text-anchor="middle" font-size="9" fill="#dbeafe">NAT/PAT + SSH ACL</text>
+  <line x1="600" y1="165" x2="600" y2="195" stroke="#334155" stroke-width="1.5"/>
+
+  <!-- Hub (Core L3 switch) -->
+  <rect x="480" y="345" width="240" height="90" rx="10" fill="#0f766e"/>
+  <text x="600" y="375" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">CORE-L3SW</text>
+  <text x="600" y="392" text-anchor="middle" font-size="10" fill="#ccfbf1">Inter-VLAN Routing (SVIs)</text>
+  <text x="600" y="406" text-anchor="middle" font-size="10" fill="#ccfbf1">DHCP Server for VLANs 10/20/30</text>
+  <line x1="600" y1="265" x2="600" y2="345" stroke="#334155" stroke-width="1.5"/>
+  <text x="608" y="305" font-size="10" fill="#334155">Trunk / Default Route</text>
+
+  <!-- VLAN 10 zone -->
+  <rect x="40" y="195" width="380" height="220" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+  <text x="230" y="220" text-anchor="middle" font-size="13" font-weight="700" fill="#78350f">VLAN 10: Administration</text>
+  <text x="230" y="236" text-anchor="middle" font-size="11" fill="#92400e">10.42.10.0/24 · GW 10.42.10.1</text>
+  <rect x="70" y="255" width="150" height="55" rx="6" fill="#475569"/>
+  <text x="145" y="278" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">PC-Admin1</text>
+  <text x="145" y="293" text-anchor="middle" font-size="9" fill="#e2e8f0">DHCP .10–.200</text>
+  <rect x="240" y="255" width="150" height="55" rx="6" fill="#475569"/>
+  <text x="315" y="278" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">PC-Admin2</text>
+  <text x="315" y="293" text-anchor="middle" font-size="9" fill="#e2e8f0">DHCP .10–.200</text>
+  <text x="60" y="340" font-size="10" fill="#78350f">Reserved static: .2–.9 (future devices, e.g. printers)</text>
+  <line x1="420" y1="300" x2="480" y2="380" stroke="#334155" stroke-width="1.2"/>
+  <text x="420" y="330" font-size="9.5" fill="#334155">SVI Vlan10: 10.42.10.1</text>
+
+  <!-- VLAN 20 zone -->
+  <rect x="780" y="195" width="380" height="220" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="970" y="220" text-anchor="middle" font-size="13" font-weight="700" fill="#14532d">VLAN 20: Archives &amp; Research</text>
+  <text x="970" y="236" text-anchor="middle" font-size="11" fill="#166534">10.42.20.0/24 · GW 10.42.20.1</text>
+  <rect x="810" y="255" width="150" height="55" rx="6" fill="#475569"/>
+  <text x="885" y="278" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">PC-Archivist1</text>
+  <text x="885" y="293" text-anchor="middle" font-size="9" fill="#e2e8f0">DHCP .10–.200</text>
+  <rect x="980" y="255" width="150" height="55" rx="6" fill="#475569"/>
+  <text x="1055" y="278" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">PC-Archivist2</text>
+  <text x="1055" y="293" text-anchor="middle" font-size="9" fill="#e2e8f0">DHCP .10–.200</text>
+  <text x="800" y="340" font-size="10" fill="#14532d">Access restricted from public Reading Room VLAN</text>
+  <line x1="780" y1="300" x2="720" y2="380" stroke="#334155" stroke-width="1.2"/>
+  <text x="700" y="330" font-size="9.5" fill="#334155">SVI Vlan20: 10.42.20.1</text>
+
+  <!-- VLAN 99 management zone -->
+  <rect x="510" y="470" width="180" height="100" rx="10" fill="#e5e7eb" stroke="#4b5563" stroke-width="1.5"/>
+  <text x="600" y="493" text-anchor="middle" font-size="12" font-weight="700" fill="#1f2937">VLAN 99: Management</text>
+  <text x="600" y="509" text-anchor="middle" font-size="10" fill="#374151">10.42.99.0/24</text>
+  <text x="600" y="530" text-anchor="middle" font-size="10" fill="#374151">CORE-L3SW SVI: 10.42.99.1</text>
+  <text x="600" y="545" text-anchor="middle" font-size="10" fill="#374151">ACC-READSW mgmt: 10.42.99.2</text>
+  <text x="600" y="560" text-anchor="middle" font-size="9" fill="#4b5563">SSH-only, ACL restricted (CR9)</text>
+  <line x1="600" y1="435" x2="600" y2="470" stroke="#334155" stroke-width="1.5"/>
+
+  <!-- VLAN 30 zone -->
+  <rect x="40" y="470" width="380" height="220" rx="10" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="230" y="495" text-anchor="middle" font-size="13" font-weight="700" fill="#7f1d1d">VLAN 30: Reading Room (Public)</text>
+  <text x="230" y="511" text-anchor="middle" font-size="11" fill="#991b1b">10.42.30.0/24 · GW 10.42.30.1</text>
+  <rect x="70" y="530" width="150" height="55" rx="6" fill="#475569"/>
+  <text x="145" y="553" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">PC-Reading1</text>
+  <text x="145" y="568" text-anchor="middle" font-size="9" fill="#e2e8f0">DHCP .10–.200</text>
+  <rect x="240" y="530" width="150" height="55" rx="6" fill="#475569"/>
+  <text x="315" y="553" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">PC-Reading2</text>
+  <text x="315" y="568" text-anchor="middle" font-size="9" fill="#e2e8f0">DHCP .10–.200</text>
+  <text x="60" y="615" font-size="10" fill="#7f1d1d">Short DHCP lease (4h): transient public patrons</text>
+  <text x="60" y="632" font-size="10" fill="#7f1d1d">No access to Admin/Archives/Server VLANs (isolated)</text>
+  <line x1="420" y1="530" x2="480" y2="420" stroke="#334155" stroke-width="1.2"/>
+  <text x="420" y="500" font-size="9.5" fill="#334155">SVI Vlan30: 10.42.30.1</text>
+
+  <!-- VLAN 40 zone -->
+  <rect x="780" y="470" width="380" height="220" rx="10" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="970" y="495" text-anchor="middle" font-size="13" font-weight="700" fill="#4c1d95">VLAN 40: Servers</text>
+  <text x="970" y="511" text-anchor="middle" font-size="11" fill="#5b21b6">10.42.40.0/24 · GW 10.42.40.1</text>
+  <rect x="895" y="540" width="150" height="60" rx="6" fill="#7c3aed"/>
+  <text x="970" y="563" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">WEB-SRV</text>
+  <text x="970" y="578" text-anchor="middle" font-size="9" fill="#ede9fe">Static 10.42.40.10</text>
+  <text x="970" y="591" text-anchor="middle" font-size="9" fill="#ede9fe">Internal HTTP portal</text>
+  <text x="800" y="632" font-size="10" fill="#4c1d95">Reachable from Admin (VLAN10) &amp; Archives (VLAN20) only</text>
+  <text x="800" y="648" font-size="10" fill="#4c1d95">Not exposed to WAN: internal hosting per assigned challenge</text>
+  <line x1="780" y1="530" x2="720" y2="420" stroke="#334155" stroke-width="1.2"/>
+  <text x="700" y="500" font-size="9.5" fill="#334155">SVI Vlan40: 10.42.40.1</text>
+
+  <!-- Legend / notes -->
+  <rect x="40" y="718" width="1120" height="120" rx="8" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="60" y="742" font-size="12" font-weight="700" fill="#111827">Notes</text>
+  <text x="60" y="764" font-size="11" fill="#334155">• All inter-VLAN traffic is routed internally by CORE-L3SW via SVIs; no traffic needs to leave the LAN to reach another department.</text>
+  <text x="60" y="782" font-size="11" fill="#334155">• RTR-EDGE provides the only path to the WAN: outbound NAT/PAT for staff internet access, and the inbound SSH path used by the off-site administrator (CR9).</text>
+  <text x="60" y="800" font-size="11" fill="#334155">• 10.42.0.0/16 gives 65,534 addresses; only 5×/24 + 1×/30 are used here, leaving significant room for future departments/services.</text>
+  <text x="60" y="818" font-size="11" fill="#334155">• WAN addressing (192.0.2.0/30) uses the IETF TEST-NET-1 documentation range (RFC 5737) to stand in for a real public IP block in this simulation.</text>
+  </g>
+</svg>
